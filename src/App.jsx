@@ -22,7 +22,7 @@ function App() {
     <Routes>
       <Route path="/">
         <Route path="auth">
-          <Route path="login" index element={<Login />} />
+          <Route path="login" element={<Login />} />
           {/* <Route path="signin" index element={<Signin />} /> */}
         </Route>
         <Route element={<Persist />}>
