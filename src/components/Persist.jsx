@@ -3,24 +3,18 @@ import { Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth.jsx";
 import Loading from "./Loading.jsx";
 import useRefresh from "../hooks/useRefresh.jsx";
-import Home from "./Home.jsx";
 
 const Persist = () => {
   const { isLogged } = useAuth();
   const navigate = useNavigate();
   const refresh = useRefresh();
 
-  useEffect(() => { 
-    try {
-      if (!isLogged) refresh();
-    } catch (err) {
-      console.error(err);
-      navigate("/login")
-    }
-
+  useEffect(() => {
+    if (!isLogged) refresh();
+    console.log(isLogged);
   }, [isLogged]);
 
-  return isLogged ? <Outlet /> : <Home />;
+  return <Outlet />;
 };
 
 export default Persist;

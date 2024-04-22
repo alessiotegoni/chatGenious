@@ -14,7 +14,8 @@
   scroll-behavior: smooth;
 }
 
-#root {
+#root:has(.phone),
+#root:has(.login) {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -107,7 +108,7 @@ button img {
     top: 50%;
     right: -25%;
     transform: translateY(-50%);
-    background-color: #fff;
+    background-color: #34b7f1;
   }
 
   .left img {
@@ -221,6 +222,20 @@ button img {
     padding: 1rem;
     border-radius: 20px;
     background: #111111;
+
+    .go-to-home {
+      font-size: .90rem;
+    }
+
+    .go-to-home a {
+      color: #34b7f1;
+      text-decoration: none;
+    }
+
+    .go-to-home a:hover {
+      text-decoration: underline;
+    }
+
   }
 
   .error-message {
@@ -1130,3 +1145,73 @@ p {
   opacity: 0;
   pointer-events: none;
 }
+
+/* Home */
+
+.home {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100dvw;
+  height: 100dvh;
+  padding: 2rem;
+
+  .navbar {
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 50px;
+  }
+
+  #chatGeniousLogo {
+    width: 60px;
+    height: 60px;
+  }
+
+  button {
+    width: fit-content;
+    padding: .50rem 1rem;
+    color: #fff;
+    font-size: 1.10rem;
+  }
+  
+  .navbar button {
+    padding: .80rem 1.50rem;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #00648f;
+  }
+
+  .links {
+    list-style: none;
+  }
+
+  .links a {
+    position: relative;
+    font-size: 1.10rem;
+    color: #fff;
+    text-decoration: none;
+    transition: .4s;
+  }
+
+  .links a::before {
+    content: "";
+    width: 50%;
+    height: 3px;
+    border-radius: 10px;
+    background: #00648f;
+    position: absolute;
+    bottom: -.50rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .3s ease;
+  }
+
+  .links a:hover::before {
+    width: 100%;
+  }
+
+  .links a:hover {
+    color: #00648f;
+  }
+
+}
+

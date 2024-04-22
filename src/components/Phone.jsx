@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BottomBar from "./BottomBar";
 import TopBar from "./TopBar";
 import Container from "./Container";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Phone = () => {
+  const { isLogged } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // if (!isLogged) navigate("/");
+  }, []);
+
   const [showChat, setShowChat] = useState({});
   const [searchedChat, setSearchedChat] = useState("");
 

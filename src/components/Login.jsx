@@ -18,7 +18,6 @@ const Login = () => {
   const { isLogged } = useAuth();
 
   useEffect(() => {
-    if (isLogged) navigate("/phone");
     inputRef.current.focus();
   }, []);
 
@@ -91,6 +90,9 @@ const Login = () => {
                 </label>
               </div>
             </div>
+            <p className="go-to-home">
+              Oppure torna alla <Link to="/">Home</Link>
+            </p>
             <button type="submit" id="loginBtn" disabled={!canSave}>
               Login
             </button>

@@ -23,8 +23,8 @@ function App() {
       <Route path="/">
           <Route path="login" element={<Login />} />
           {/* <Route path="signin" index element={<Signin />} /> */}
-        <Route index element={<Home />} />
         <Route element={<Persist />}>
+          <Route index element={<Home />} />
           <Route element={<Prefetch />}>
             <Route path="phone" element={<Phone />} />
           </Route>
