@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Phone = () => {
-  const { isLogged } = useAuth();
-  const navigate = useNavigate();
 
   const [showChat, setShowChat] = useState({});
   const [searchedChat, setSearchedChat] = useState("");

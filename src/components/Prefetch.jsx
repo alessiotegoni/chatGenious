@@ -7,16 +7,18 @@ import useAuth from "../hooks/useAuth";
 import Loading from "./Loading";
 
 const Prefetch = () => {
+  
   const { isLogged } = useAuth();
   const axiosPrivate = useAxiosPrivate();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLogged) return navigate("/");
+
+    if (!isLogged) return navigate("/")
 
     const fetchUserChats = async () => {
       try {
@@ -40,7 +42,7 @@ const Prefetch = () => {
       } catch (err) {
         console.error(err);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     };
 

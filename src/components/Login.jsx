@@ -18,6 +18,7 @@ const Login = () => {
   const { isLogged } = useAuth();
 
   useEffect(() => {
+    if (isLogged) return navigate("/")
     inputRef.current.focus();
   }, []);
 

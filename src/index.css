@@ -1225,3 +1225,90 @@ p {
 
 }
 
+@media (max-height: 790px) {
+  
+  .phone {
+    width: 310px;
+    min-height: 560px;
+
+    .top-bar img {
+      width: 23px;
+      height: 23px;
+    }
+
+    .top-bar .search-box {
+      justify-content: space-between;
+      gap: .80rem;
+    }
+
+    .top-bar .search-box .input-group img {
+      width: 15px;
+      height: 15px;
+    }
+
+    .top-bar .title {
+      font-size: 1.20rem;
+      margin: .80rem 0;
+    }
+
+    .container {
+      min-height: calc(560px - 2rem - 0.67rem * 2 - 144.78px - 74.19px);
+    }
+
+    .bottom-bar {
+      padding: 1rem;
+    }
+
+    .bottom-bar button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bottom-bar p {
+      font-size: .60rem;
+    }
+
+    .chat .left {
+      place-items: center;
+    }
+
+    .chat .left img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .chat .chat-name {
+      font-size: .80rem;
+    }
+
+    .chat .last-message {
+      margin-top: .2rem;
+      font-size: .7rem;
+    }
+
+    .chat .last-msg-timestamp {
+      font-size: .7rem;
+    }
+
+    .create-contact {
+      padding: .50rem;
+    }
+
+    .create-contact .box {
+      padding: .80rem;
+    }
+
+    .create-contact header.flex > * {
+      font-size: .85rem;
+    }
+
+    .create-contact .box .input-group.flex {
+      padding: .85rem;
+    }
+
+  }
+
+}
+
+/* TODO: Make responsive settings and chat-dm */
+/* TODO: Make responsive for smartphones */
