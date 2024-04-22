@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://chatGenious.api.onrender.com";
+const baseURL = "https://chatgenious-api.onrender.com";
 
 export default axios.create({
   baseURL,
