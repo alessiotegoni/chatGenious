@@ -1,20 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, json, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { setChats } from "../redux/slices/chatsSlice";
 import useAuth from "../hooks/useAuth";
+import Loading from "./Loading";
 
 const Prefetch = () => {
-  const dispatch = useDispatch();
+  const { isLogged } = useAuth();
   const axiosPrivate = useAxiosPrivate();
 
-  const { isLogged } = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-
-    if (!isLogged) return navigate("/")
+    if (!isLogged) return navigate("/");
 
     const fetchUserChats = async () => {
       try {
@@ -37,13 +39,15 @@ const Prefetch = () => {
         dispatch(setChats({ chats }));
       } catch (err) {
         console.error(err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchUserChats();
   }, []);
 
-  return isLogged && <Outlet />;
+  return isLogged && !isLoading ? <Outlet /> : <Loading />;
 };
 
 export default Prefetch;

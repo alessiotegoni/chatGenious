@@ -8,7 +8,7 @@ const useRefresh = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const refresh = async () => {
+  const refresh = async (setIsLoading) => {
     try {
       const res = await api.get(`/auth/refresh`, {
         withCredentials: true,
@@ -24,6 +24,8 @@ const useRefresh = () => {
       return { accessToken };
     } catch (err) {
       return { error: err.message };
+    } finally {
+      setIsLoading(false);
     }
   };
 
