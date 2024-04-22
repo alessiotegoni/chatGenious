@@ -108,7 +108,7 @@ const Settings = ({
         setMsg({ type: "success", message: data.message });
       }, 2000);
       setTimeout(() => {
-        navigate("/");
+        dispatch(logout());
       }, 5000);
     } catch (err) {
       setMsg({ type: "error", message: err?.message || err?.data?.message });
