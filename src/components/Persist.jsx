@@ -16,7 +16,7 @@ const Persist = () => {
     // else setIsLoading(false);
   }, [isLogged]);
 
-  return isLogged && <Outlet />
+  return <Outlet />
 };
 
 export default Persist;
