@@ -9,14 +9,14 @@ const Persist = () => {
   const navigate = useNavigate();
   const refresh = useRefresh();
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!isLogged) refresh(setIsLoading);
-    else setIsLoading(false);
+    // else setIsLoading(false);
   }, [isLogged]);
 
-  return !isLoading ? <Outlet /> : <Loading />;
+  return isLogged && <Outlet />
 };
 
 export default Persist;
