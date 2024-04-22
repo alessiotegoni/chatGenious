@@ -10,7 +10,7 @@ const Signin = () => {
     if (isLogged) navigate("/phone");
   }, []);
 
-  return <div><Link to="/auth/login">Login</Link></div>;
+  return <div><Link to="/login">Login</Link></div>;
 };
 
 export default Signin;

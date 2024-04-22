@@ -10,7 +10,7 @@ const Chat = ({ chat: c, setShowChat }) => {
   const lastMsg = c.messages.at(-1) || [];
   const displayesMsg = c.messages.length
     ? lastMsg.content.length > 20
-      ? `${lastMsg.content.split(" ").slice(0, 7).join(" ")}...`
+      ? `${lastMsg.content.split(" ").slice(0, 5).join(" ")}...`
       : lastMsg.content
     : "Scrivimi un messaggio!";
 

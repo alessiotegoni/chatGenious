@@ -15,7 +15,7 @@ const Persist = () => {
       if (!isLogged) refresh();
     } catch (err) {
       console.error(err);
-      navigate("/auth/login")
+      navigate("/login")
     }
 
   }, [isLogged]);

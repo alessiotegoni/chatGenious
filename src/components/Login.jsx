@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const inputRef = useRef()
+  const inputRef = useRef();
 
   const axios = useAxiosPrivate();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isLogged) navigate("/phone");
-    inputRef.current.focus()
+    inputRef.current.focus();
   }, []);
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Prefetch from "./components/Prefetch";
 import Persist from "./components/Persist";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 function App() {
   const navigate = useNavigate();
@@ -20,16 +21,15 @@ function App() {
   return (
     <Routes>
       <Route path="/">
-        <Route path="auth">
-          <Route path="login" index element={<Login />} />
+          <Route path="login" element={<Login />} />
           {/* <Route path="signin" index element={<Signin />} /> */}
-        </Route>
         <Route index element={<Home />} />
         <Route element={<Persist />}>
           <Route element={<Prefetch />}>
             <Route path="phone" element={<Phone />} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

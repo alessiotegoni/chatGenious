@@ -23,7 +23,7 @@ const useRefresh = () => {
       dispatch(setCredentials({ accessToken }));
       return { accessToken };
     } catch (err) {
-      navigate("/auth/login");
+      navigate("/login");
       return { error: err.message };
     }
   };
