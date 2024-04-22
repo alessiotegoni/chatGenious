@@ -12,7 +12,7 @@ const Persist = () => {
   // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLogged) refresh(setIsLoading);
+    if (!isLogged) refresh();
     // else setIsLoading(false);
   }, [isLogged]);
 
