@@ -11,7 +11,6 @@ const Persist = () => {
 
   useEffect(() => {
     if (!isLogged) refresh();
-    console.log(isLogged);
   }, [isLogged]);
 
   return <Outlet />;

@@ -9,10 +9,6 @@ const Phone = () => {
   const { isLogged } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // if (!isLogged) navigate("/");
-  }, []);
-
   const [showChat, setShowChat] = useState({});
   const [searchedChat, setSearchedChat] = useState("");
 

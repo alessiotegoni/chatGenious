@@ -3,12 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Outlet, json, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { setChats } from "../redux/slices/chatsSlice";
+import useAuth from "../hooks/useAuth";
 
 const Prefetch = () => {
   const dispatch = useDispatch();
   const axiosPrivate = useAxiosPrivate();
 
+  const { isLogged } = useAuth();
+  const navigate = useNavigate();
+
   useEffect(() => {
+
+    if (!isLogged) return navigate("/")
+
     const fetchUserChats = async () => {
       try {
         const { data: chats } = await axiosPrivate.get("/chats");
@@ -36,7 +43,7 @@ const Prefetch = () => {
     fetchUserChats();
   }, []);
 
-  return <Outlet />;
+  return isLogged && <Outlet />;
 };
 
 export default Prefetch;
