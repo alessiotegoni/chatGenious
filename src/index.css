@@ -1310,5 +1310,27 @@ p {
 
 }
 
+@media (max-width: 800px) {
+  
+  .login {
+    justify-content: center;
+  }
+
+  .login .left {
+    display: none;
+  }
+
+  .login .right {
+    width: 100%;
+    justify-content: center;
+    flex-basis: auto;
+  }
+
+  .login .login-container {
+    max-width: 350px;
+  }
+
+}
+
 /* TODO: Make responsive settings and chat-dm */
 /* TODO: Make responsive for smartphones */
