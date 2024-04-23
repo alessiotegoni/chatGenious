@@ -109,7 +109,7 @@ button img {
     flex-basis: 40%;
     justify-content: flex-end;
   }
-  
+
   .left::before {
     content: "";
     height: 200%;
@@ -125,7 +125,7 @@ button img {
     width: 200px;
     height: 200px;
   }
-  
+
   .right {
     justify-content: flex-start;
     flex-basis: 40%;
@@ -141,7 +141,7 @@ button img {
     align-items: center;
   }
 
-  .login .box{
+  .login .box {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -234,7 +234,7 @@ button img {
     background: #111111;
 
     .go-to-home {
-      font-size: .90rem;
+      font-size: 0.9rem;
     }
 
     .go-to-home a {
@@ -245,7 +245,6 @@ button img {
     .go-to-home a:hover {
       text-decoration: underline;
     }
-
   }
 
   .error-message {
@@ -347,7 +346,7 @@ button img {
 
   .no-chats {
     font-size: 1rem;
-    margin: .50rem;
+    margin: 0.5rem;
   }
 
   .no-chats span {
@@ -994,7 +993,7 @@ p {
   height: calc(100% - 81.19px - 3rem);
   position: absolute;
   left: 50%;
-  top: 0.50rem;
+  top: 0.5rem;
   transform: translateX(-50%);
   padding: 1.5rem;
   z-index: 9999;
@@ -1178,13 +1177,13 @@ p {
 
   button {
     width: fit-content;
-    padding: .50rem 1rem;
+    padding: 0.5rem 1rem;
     color: #fff;
-    font-size: 1.10rem;
+    font-size: 1.1rem;
   }
-  
+
   .navbar button {
-    padding: .80rem 1.50rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 10px;
     height: 100%;
     background-color: #00648f;
@@ -1196,10 +1195,10 @@ p {
 
   .links a {
     position: relative;
-    font-size: 1.10rem;
+    font-size: 1.1rem;
     color: #fff;
     text-decoration: none;
-    transition: .4s;
+    transition: 0.4s;
   }
 
   .links a::before {
@@ -1209,10 +1208,10 @@ p {
     border-radius: 10px;
     background: #00648f;
     position: absolute;
-    bottom: -.50rem;
+    bottom: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    transition: .3s ease;
+    transition: 0.3s ease;
   }
 
   .links a:hover::before {
@@ -1222,14 +1221,22 @@ p {
   .links a:hover {
     color: #00648f;
   }
-
 }
 
 @media (max-height: 790px) {
-  
   .phone {
     width: 310px;
     min-height: 560px;
+
+    .no-result {
+      width: 100%;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .no-chats {
+      font-size: 0.9rem;
+    }
 
     .top-bar img {
       width: 23px;
@@ -1238,7 +1245,7 @@ p {
 
     .top-bar .search-box {
       justify-content: space-between;
-      gap: .80rem;
+      gap: 0.8rem;
     }
 
     .top-bar .search-box .input-group img {
@@ -1247,8 +1254,8 @@ p {
     }
 
     .top-bar .title {
-      font-size: 1.20rem;
-      margin: .80rem 0;
+      font-size: 1.2rem;
+      margin: 0.8rem 0;
     }
 
     .container {
@@ -1260,12 +1267,12 @@ p {
     }
 
     .bottom-bar button img {
-        width: 20px;
-        height: 20px;
+      width: 20px;
+      height: 20px;
     }
 
     .bottom-bar p {
-      font-size: .60rem;
+      font-size: 0.6rem;
     }
 
     .chat .left {
@@ -1278,40 +1285,131 @@ p {
     }
 
     .chat .chat-name {
-      font-size: .80rem;
+      font-size: 0.8rem;
     }
 
     .chat .last-message {
-      margin-top: .2rem;
-      font-size: .7rem;
+      margin-top: 0.2rem;
+      font-size: 0.7rem;
     }
 
     .chat .last-msg-timestamp {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
 
     .create-contact {
-      padding: .50rem;
+      padding: 0.5rem;
     }
 
     .create-contact .box {
-      padding: .80rem;
+      padding: 0.8rem;
     }
 
     .create-contact header.flex > * {
-      font-size: .85rem;
+      font-size: 0.85rem;
     }
 
     .create-contact .box .input-group.flex {
-      padding: .85rem;
+      padding: 0.85rem;
     }
 
-  }
+    .settings-container {
+      padding: 0.8rem;
+    }
 
+    .user-info {
+      margin-top: 1.4rem;
+    }
+
+    .user-info .box {
+      padding: 0.8rem;
+    }
+
+    .box p {
+      font-size: 0.9rem !important;
+    }
+
+    .settings-container .title {
+      font-size: 1.3rem;
+      padding-left: 0.4rem;
+    }
+
+    .box.chats-info {
+      height: 67px;
+    }
+
+    .settings-container button {
+      font-size: 0.7rem;
+    }
+
+    #logoutBtn {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .shown-chat {
+      header,
+      .delete-quest-cont {
+        padding: 0.8rem;
+      }
+
+      #hideChat {
+        width: 20px;
+        height: 20px;
+      }
+
+      img[alt="chat-img"] {
+        width: 40px;
+        height: 40px;
+      }
+
+      img[alt="chat-img"].show-full {
+        width: 140px;
+        height: 140px;
+      }
+
+      .chat-name {
+        letter-spacing: 0;
+        font-size: 1rem;
+        font-weight: lighter;
+        margin-bottom: 0.3rem;
+      }
+
+      #deleteActions {
+        width: 20px;
+        height: 20px;
+      }
+
+      .delete-quest-cont .flex {
+        padding: .6rem;
+        gap: 2rem;
+      }
+      
+      .delete-quest-cont .dropdown {
+        min-width: fit-content;
+      }
+
+      .delete-quest-cont:has(#confirmDelete) {
+        gap: .50rem;
+      }
+
+      #confirmDelete {
+        padding: .6rem;
+      }
+
+      #deleteType {
+        padding: .4rem !important;
+        top: calc(100% + 1.5rem);
+      }
+
+      #deleteType button {
+        padding: .4rem;
+      }
+    }
+  }
 }
 
 @media (max-width: 800px) {
-  
   .login {
     justify-content: center;
   }
@@ -1329,7 +1427,6 @@ p {
   .login .login-container {
     max-width: 350px;
   }
-
 }
 
 /* TODO: Make responsive settings and chat-dm */
