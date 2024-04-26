@@ -1,35 +1,35 @@
 import "./index.css";
 import useAuth from "./hooks/useAuth";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./components/Login";
-import Phone from "./components/Phone";
+import Login from "./components/auth/Login";
+import Phone from "./components/phone/Phone";
 import { useEffect } from "react";
-import Prefetch from "./components/Prefetch";
-import Persist from "./components/Persist";
-import Home from "./components/Home";
+import Prefetch from "./components/phone/Prefetch";
+import Persist from "./components/home/Persist";
+import LandingPage from "./components/home/LandingPage";
 import NotFound from "./components/NotFound";
+import Layout from "./components/home/Layout";
+import Signin from "./components/auth/Signin";
+import Info from "./components/userManual/Info";
 
 function App() {
-  const navigate = useNavigate();
-
-  const { isLogged } = useAuth();
-
-  useEffect(() => {
-    if (isLogged) return navigate("/phone");
-  }, []);
-
   return (
     <Routes>
       <Route path="/">
+        <Route element={<Layout />}>
           <Route path="login" element={<Login />} />
-          {/* <Route path="signin" index element={<Signin />} /> */}
-        <Route element={<Persist />}>
-          <Route index element={<Home />} />
+          <Route path="signin" index element={<Signin />} />
+          <Route element={<Persist />}>
+            <Route index element={<LandingPage />} />
+          </Route>
           <Route element={<Prefetch />}>
             <Route path="phone" element={<Phone />} />
           </Route>
+          <Route path="usermanual">
+            <Route index element={<Info />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ import BottomBar from "./BottomBar";
 import TopBar from "./TopBar";
 import Container from "./Container";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Phone = () => {
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Dm from "./Dm";
 import Chat from "./Chat";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserChats, setChats } from "../redux/slices/chatsSlice";
+import { getUserChats, setChats } from "../../redux/slices/chatsSlice";
 import Settings from "./Settings";
 
 const ChatContainer = ({
@@ -26,7 +26,6 @@ const ChatContainer = ({
 
   useEffect(() => {
     const sortedChats = [...chats].sort((chatA, chatB) => {
-      console.log(chatA, chatB);
 
       const parseDate = (dateString) => {
         // if (dateString === "Oggi") return new Date();
@@ -35,8 +34,6 @@ const ChatContainer = ({
         //   yesterday.setDate(yesterday.getDate() - 1);
         //   return yesterday;
         // }
-
-        console.log(dateString);
 
         const [day, month, year] = dateString.split("/");
         return new Date(`${year}-${month}-${day}`);

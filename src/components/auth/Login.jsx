@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../redux/slices/authSlice";
+import { setCredentials } from "../../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [msg, setMsg] = useState({});
 
   const inputRef = useRef();
 
@@ -18,12 +19,12 @@ const Login = () => {
   const { isLogged } = useAuth();
 
   useEffect(() => {
-    if (isLogged) return navigate("/")
+    if (isLogged) return navigate("/");
     inputRef.current.focus();
   }, []);
 
   useEffect(() => {
-    setErrorMessage();
+    setMsg({});
   }, [username, password]);
 
   const canSave = [username, password].every(Boolean);
@@ -33,20 +34,27 @@ const Login = () => {
 
     if (!canSave) return;
 
+    setIsLoading(true);
+
     try {
       const { data } = await axios.post("/auth/login", { username, password });
 
       if (!data.success) throw new Error(data.message);
 
-      console.log(data);
-
       dispatch(setCredentials({ accessToken: data.accessToken }));
 
-      navigate("/phone");
+      setMsg({ message: data.message });
+      setTimeout(() => {
+        navigate("/phone");
+      }, 4000);
     } catch (err) {
       console.error(err);
-
-      setErrorMessage(err.message);
+      setIsLoading(false);
+      setMsg({ isError: true, message: err.message });
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
     }
   };
 
@@ -59,7 +67,12 @@ const Login = () => {
         <div className="login-container">
           <form className="box" onSubmit={handleSubmit}>
             <h2>Login</h2>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {msg.message && msg.isError && (
+              <p className="msg error">{msg.message}</p>
+            )}
+            {msg.message && !msg.isError && (
+              <p className="msg success">{msg.message}</p>
+            )}
             <div className="my-login">
               <div className="input-group">
                 <input
@@ -92,10 +105,18 @@ const Login = () => {
               </div>
             </div>
             <p className="go-to-home">
-              Oppure torna alla <Link to="/">Home</Link>
+              Se non hai un account, <Link to="/signin">Registrati</Link>
             </p>
             <button type="submit" id="loginBtn" disabled={!canSave}>
-              Login
+              {isLoading ? (
+                <img
+                  src="/imgs/IOS-loading.gif"
+                  className="loading-gif"
+                  alt="loading-gif"
+                />
+              ) : (
+                "login"
+              )}
             </button>
           </form>
         </div>

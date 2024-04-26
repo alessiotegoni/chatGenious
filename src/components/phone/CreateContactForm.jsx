@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addNewChat } from "../redux/slices/chatsSlice";
+import { addNewChat } from "../../redux/slices/chatsSlice";
 
 const CreateContactForm = ({ active, setActive }) => {
   const [contactName, setContactName] = useState("");
@@ -25,7 +25,7 @@ const CreateContactForm = ({ active, setActive }) => {
     setIsLoading(true);
 
     const data = {
-      chatName: `${contactName} ${contactSurname}`,
+      chatName: `${contactName.trim()} ${contactSurname.trim()}`,
       createdAt: new Date(Date.now()).toISOString(),
     };
 

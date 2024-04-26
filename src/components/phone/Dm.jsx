@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteChatMsgs,
   deleteChats,
   getUserChats,
   saveMessage,
-} from "../redux/slices/chatsSlice";
+} from "../../redux/slices/chatsSlice";
 
 const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
   const msgsContainer = useRef();
@@ -49,9 +49,6 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
 
     try {
       setUserInput("");
-      timeOutId = setTimeout(() => {
-        setIsLoading(true);
-      }, 3000 + Math.floor(Math.random() * newMsg.content.length));
 
       const res = await axios.post("/chats/messages", {
         chatId: chat._id,
@@ -62,6 +59,10 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
 
       dispatch(saveMessage({ chatId: chat._id, newMsg }));
       new Audio("/audios/Outcoming-message.mp3").play();
+
+      timeOutId = setTimeout(() => {
+        setIsLoading(true);
+      }, 3000 + Math.floor(Math.random() * newMsg.content.length));
 
       const { speakingWith, geminiRes } = res.data;
 

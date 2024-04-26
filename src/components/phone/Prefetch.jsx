@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, json, useNavigate } from "react-router-dom";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import { setChats } from "../redux/slices/chatsSlice";
-import useAuth from "../hooks/useAuth";
-import Loading from "./Loading";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import { setChats } from "../../redux/slices/chatsSlice";
+import useAuth from "../../hooks/useAuth";
+import Loading from "../Loading";
 
 const Prefetch = () => {
   

@@ -36,7 +36,10 @@ const Chat = ({ chat: c, setShowChat }) => {
         onClick={() => setShowChat({ chatId: c._id, show: true })}
       >
         <div className="left">
-          <img src={c.chatImage} alt={`${c.chatName}-img`} />
+          <img
+            src={c.chatImage || "/imgs/default-user.png"}
+            alt={`${c.chatName}-img`}
+          />
           <div className="content">
             <h3 className="chat-name">{c.chatName}</h3>
             <p className="last-message">{displayesMsg}</p>
@@ -44,7 +47,6 @@ const Chat = ({ chat: c, setShowChat }) => {
         </div>
         <p className="last-msg-timestamp">{fmtdDate}</p>
       </article>
-      <hr />
     </>
   );
 };

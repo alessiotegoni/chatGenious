@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteChats, getUserChats } from "../redux/slices/chatsSlice";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import { deleteChats, getUserChats } from "../../redux/slices/chatsSlice";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../redux/slices/authSlice";
+import { logout } from "../../redux/slices/authSlice";
 
 const Settings = ({
   setActiveSection,
@@ -161,7 +161,7 @@ const Settings = ({
               <ul>
                 {chats.map(({ _id, chatName }) => (
                   <li key={_id} onClick={() => handleShowChat(_id)}>
-                    {chatName}
+                    {chatName.split(" ")[1]}
                   </li>
                 ))}
               </ul>
