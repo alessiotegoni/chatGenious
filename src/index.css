@@ -1463,7 +1463,7 @@ p {
 
       .chat-name {
         letter-spacing: 0;
-        font-size: 1rem;
+        font-size: .9rem;
         font-weight: lighter;
         margin-bottom: 0.3rem;
       }
