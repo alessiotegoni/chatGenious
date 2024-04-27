@@ -53,7 +53,7 @@ const Login = () => {
       setMsg({ isError: true, message: err.message });
     } finally {
       setTimeout(() => {
-        setIsLoading(false);
+        if (isLoading) setIsLoading(false);
       }, 5000);
     }
   };

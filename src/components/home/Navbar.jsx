@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const { isLogged } = useAuth();
   const { pathname } = useLocation();
@@ -15,8 +17,6 @@ const Navbar = () => {
   useEffect(() => {
     const link = document.querySelector(`.links #${path}`);
 
-    console.log(link);
-
     if (!link) return;
 
     link.classList.add("active");
@@ -26,13 +26,18 @@ const Navbar = () => {
     };
   }, [pathname]);
 
+  const handleNavigate = (path = "") => {
+    if (mobileMenu) setMobileMenu(false);
+    navigate(`/${path}`);
+  };
+
   let buttons = "";
   const authBtns = isLogged ? (
-    <button type="button" onClick={() => navigate("/phone")}>
+    <button type="button" onClick={() => handleNavigate("phone")}>
       entra
     </button>
   ) : (
-    <button type="button" onClick={() => navigate("/login")}>
+    <button type="button" onClick={() => handleNavigate("login")}>
       login
     </button>
   );
@@ -40,7 +45,7 @@ const Navbar = () => {
   switch (path) {
     case "phone":
       buttons = (
-        <button type="button" onClick={() => navigate("/")}>
+        <button type="button" onClick={() => handleNavigate()}>
           esci
         </button>
       );
@@ -53,23 +58,37 @@ const Navbar = () => {
       break;
   }
 
+  // <img
+  //   src="/imgs/ChatGenius-logo.png"
+  //   alt="chatGenious-logo"
+  //   id="chatGeniousLogo"
+  //   onClick={() => navigate("/")}
+  // />
+
   return (
     <nav className="navbar flex">
-      <img
-        src="/imgs/ChatGenius-logo.png"
-        alt="chatGenious-logo"
-        id="chatGeniousLogo"
-        onClick={() => navigate("/")}
-      />
-      <ul className="links">
-        <li id="home">
-          <Link to="/">Home</Link>
+      <h2 className="logo" onClick={() => navigate("/")}>
+        ChatGenious
+      </h2>
+      <ul className={`links ${mobileMenu ? "active" : ""}`}>
+        <li>
+          <li id="home">
+            <Link to="/">Home</Link>
+          </li>
+          <li id="usermanual">
+            <Link to="/usermanual">Manuale d'uso</Link>
+          </li>
         </li>
-        <li id="usermanual">
-          <Link to="/usermanual">Manuale d'uso</Link>
-        </li>
+        {buttons && <li className="mobile-btns">{buttons}</li>}
       </ul>
       {buttons}
+      <button
+        type="button"
+        id="toggleMobileMenu"
+        onClick={() => setMobileMenu((p) => !p)}
+      >
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAL0lEQVR4nO3BQREAMBADofVvOpXQ/w1QAEDtiHZEAADwtSPaEQEAwNeOaEcEANQDM6arjUtOdLsAAAAASUVORK5CYII=" />
+      </button>
     </nav>
   );
 };
