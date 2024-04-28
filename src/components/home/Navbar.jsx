@@ -33,11 +33,19 @@ const Navbar = () => {
 
   let buttons = "";
   const authBtns = isLogged ? (
-    <button type="button" onClick={() => handleNavigate("phone")}>
+    <button
+      type="button"
+      onClick={() => handleNavigate("phone")}
+      className="btn"
+    >
       entra
     </button>
   ) : (
-    <button type="button" onClick={() => handleNavigate("login")}>
+    <button
+      type="button"
+      className="btn"
+      onClick={() => handleNavigate("login")}
+    >
       login
     </button>
   );
@@ -45,7 +53,11 @@ const Navbar = () => {
   switch (path) {
     case "phone":
       buttons = (
-        <button type="button" onClick={() => handleNavigate()}>
+        <button
+          type="button"
+          onClick={() => handleNavigate()}
+          className="btn exit"
+        >
           esci
         </button>
       );

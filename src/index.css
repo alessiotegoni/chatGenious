@@ -31,6 +31,8 @@
 }
 
 body {
+  width: 100dvw;
+  min-height: 100dvh;
   background-color: #242424;
 }
 
@@ -1202,15 +1204,20 @@ p {
 .home {
   max-width: 900px;
   margin: 0 auto;
-  width: 100dvw;
-  height: 100dvh;
+  width: inherit;
+  min-height: 100dvh;
   padding: 2%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
 
   .navbar {
     justify-content: space-between;
     gap: 2rem;
-    padding: 1.5rem;
-    border-radius: 30px;
+    padding: 1.2rem;
+    border-radius: 25px;
     background: #111111;
   }
 
@@ -1231,12 +1238,49 @@ p {
     color: #fff;
     font-size: 1.1rem;
     border-radius: 10px;
-    border: 1px solid #202020;
     transition: 0.3s ease;
   }
 
-  .navbar button:hover {
-    background-color: #34b7f1;
+  .navbar #toggleMobileMenu {
+    border: 1px solid #202020;
+  }
+
+  .navbar .btn {
+    position: relative;
+    padding: 0.5rem 1.6rem;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #083880;
+    z-index: 1;
+  }
+
+  .navbar .btn:not(.btn.exit)::before,
+  .navbar .btn:not(.btn.exit):after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    opacity: 0.7;
+    background-color: #083880;
+    border-radius: 15px;
+    z-index: -1;
+    animation: pulse 5s ease-in-out infinite;
+  }
+
+  .navbar .btn::after {
+    animation-delay: 1.1s;
+  }
+
+  .navbar .btn:hover {
+    background-color: transparent;
+    border-color: #083880;
+    animation: none;
+  }
+
+  .navbar .btn:hover::before,
+  .navbar .btn:hover::after {
+    display: none;
   }
 
   .links li {
@@ -1269,8 +1313,30 @@ p {
     background-color: #202020;
   }
 
-  .links li.active a {
-    border: 1px solid #34b7f1;
+  .links li.active a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 2px;
+    background-color: #34b7f1;
+    border-radius: 20px 20px 0 0;
+    transition: 0.5s ease-out;
+  }
+
+  .links li.active a:hover::before {
+    width: 80%;
+    opacity: 0;
+  }
+
+  .links li.active a:hover {
+    border-color: #34b7f1;
+  }
+
+  .links li.active:hover a {
+    border-color: transparent;
   }
 
   /* .links a::before {
@@ -1294,11 +1360,17 @@ p {
 
   .outlet {
     width: 100%;
-    height: calc(100dvh - 92px - 1.5rem - 2%);
-    margin-top: 1rem;
+    height: 80dvh;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@keyframes pulse {
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
   }
 }
 
@@ -1381,22 +1453,17 @@ p {
 }
 
 @media (max-height: 860px) or (max-width: 580px) {
-
   .loading img {
     width: 35px;
     height: 35px;
   }
-  
+
   .home {
     padding-top: 0;
 
     .navbar {
       padding: 1rem;
       border-radius: 0 0 30px 30px;
-    }
-
-    .outlet {
-      height: calc(100dvh - 61px - 4% - 1rem);
     }
 
     #chatGeniousLogo {
@@ -1412,7 +1479,7 @@ p {
   .phone {
     width: 310px;
     min-height: 560px;
-    transition: .4s;
+    transition: 0.4s;
 
     .no-result {
       width: 100%;
@@ -1630,5 +1697,17 @@ p {
 
   .login .login-container {
     max-width: 350px;
+  }
+}
+
+@media (max-height: 785px) {
+  .home:has(.links.active) .phone {
+    margin-top: 10rem;
+  }
+}
+
+@media (max-height: 710px) {
+  .home:has(.links.active) .phone {
+    margin-top: 20rem;
   }
 }
