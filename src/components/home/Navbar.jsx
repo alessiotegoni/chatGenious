@@ -84,11 +84,11 @@ const Navbar = () => {
       </h2>
       <ul className={`links ${mobileMenu ? "active" : ""}`}>
         <li>
-          <li id="home">
-            <Link to="/">Home</Link>
+          <li id="home" onClick={() => handleNavigate()}>
+            <a>Home</a>
           </li>
-          <li id="usermanual">
-            <Link to="/usermanual">Manuale d'uso</Link>
+          <li id="usermanual" onClick={() => handleNavigate("usermanual")}>
+            <a>Manuale d'uso</a>
           </li>
         </li>
         {buttons && <li className="mobile-btns">{buttons}</li>}
