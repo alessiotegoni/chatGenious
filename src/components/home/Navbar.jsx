@@ -80,7 +80,7 @@ const Navbar = () => {
   return (
     <nav className="navbar flex">
       <h2 className="logo" onClick={() => navigate("/")}>
-        ChatGenious
+        ChatGenius
       </h2>
       <ul className={`links ${mobileMenu ? "active" : ""}`}>
         <li>

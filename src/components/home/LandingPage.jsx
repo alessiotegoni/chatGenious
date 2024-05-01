@@ -21,9 +21,9 @@ const Home = () => {
       } else {
         clearInterval(intervalId);
       }
-    }, 200); // Intervallo di tempo in millisecondi tra ogni carattere scritto
+    }, 200); 
 
-    return () => clearInterval(intervalId); // Pulisce l'intervallo quando il componente si smonta
+    return () => clearInterval(intervalId);
   }, [words]);
 
   const btns = isLogged ? (
