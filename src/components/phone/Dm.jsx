@@ -50,15 +50,15 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
     try {
       setUserInput("");
 
+      dispatch(saveMessage({ chatId: chat._id, newMsg }));
+      new Audio("/audios/Outcoming-message.mp3").play();
+
       const res = await axios.post("/chats/messages", {
         chatId: chat._id,
         newMsg,
       });
 
       if (!res.data || res.name === "AxiosError") throw new Error(res);
-
-      dispatch(saveMessage({ chatId: chat._id, newMsg }));
-      new Audio("/audios/Outcoming-message.mp3").play();
 
       timeOutId = setTimeout(() => {
         setIsLoading(true);
@@ -130,7 +130,12 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
   });
 
   const msgBtns = userInput.length ? (
-    <button type="submit" id="sendMessageBtn" disabled={!canSend}>
+    <button
+      type="submit"
+      className="pulse2"
+      id="sendMessageBtn"
+      disabled={!canSend}
+    >
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLklEQVR4nO2WPy8FQRTFN0FBIxKNWi3hnifRPa2gfK2S6CVKhUajJM7db/BapURofAKtRHhbkZ27qCSyspYXolkrO0PyTnK6SX5nJnP/RNFAoQRmy1DrCe0KattgMuYFLLRbqOV90xLQNsB8pFEwPkO/BriW2NY73XzIL1hLC+0StI53MPp2Fy2m7QBgK19A7WRe3ax3MMrbv0CtC9q0Z7B9BHgGjeDT1M/BtOR38Dc/Ct0umI5XBotmK99quaZF3b3QbS3s34xWDjBzaBMSG6DpmtD2QHf83s3qhOgVPaC9kw9HdQU+TCJ2i6BtQt0B1E6h7q5igPMgYFE7+3tPPXeUrhYHvX8uhConBGsg+k9apvgfEs7vWBTviwAbXn0k1LLXYrZUwL2vtwNFDekVzoh4aIzkW8sAAAAASUVORK5CYII=" />
     </button>
   ) : (

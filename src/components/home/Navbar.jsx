@@ -87,9 +87,9 @@ const Navbar = () => {
           <li id="home" onClick={() => handleNavigate()}>
             <a>Home</a>
           </li>
-          <li id="usermanual" onClick={() => handleNavigate("usermanual")}>
+          {/* <li id="usermanual" onClick={() => handleNavigate("usermanual")}>
             <a>Manuale d'uso</a>
-          </li>
+          </li> */}
         </li>
         {buttons && <li className="mobile-btns">{buttons}</li>}
       </ul>

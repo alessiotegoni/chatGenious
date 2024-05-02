@@ -27,11 +27,11 @@ const Home = () => {
   }, [words]);
 
   const btns = isLogged ? (
-    <button type="button" className="btn" onClick={() => navigate("/phone")}>
+    <button type="button" className="btn pulse" onClick={() => navigate("/phone")}>
       Continua la chat
     </button>
   ) : (
-    <button type="button" className="btn" onClick={() => navigate("/login")}>
+    <button type="button" className="btn pulse" onClick={() => navigate("/login")}>
       Inizia ora!
     </button>
   );

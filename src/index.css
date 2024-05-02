@@ -41,7 +41,7 @@ button {
   transition: 0.2s;
 }
 
-button:active {
+button:not(.bottom-bar button):active {
   transform: scale(0.97);
 }
 
@@ -280,6 +280,23 @@ button img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.actions-btns button:has(#newChatBtn) {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 9999;
+  border-radius: 50%;
+  background-color: #111111;
+}
+
+.actions-btns button:has(#newChatBtn)::before,
+.actions-btns button:has(#newChatBtn)::after {
+  opacity: 0.7;
+  background-color: #083880;
+  border-radius: 50%;
+  animation-direction: alternate;
 }
 
 .actions-btns img {
@@ -1400,7 +1417,7 @@ p {
 
     h2 {
       color: red;
-      font: 600 2.5rem "Courier New";
+      font: lighter 2.2rem "SFpro";
     }
 
     b {
@@ -1452,41 +1469,51 @@ p {
       font-size: 1rem;
     }
 
-    .btn::before,
-    .btn:after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      opacity: 0.3;
-      background-color: #083880;
-      border-radius: 10px;
-      z-index: -1;
-      animation: pulse 5s ease-in-out infinite;
-    }
-
-    .btn::after {
-      animation-delay: 1s !important;
-    }
-
     .btn:hover {
       background-color: transparent;
       border-color: #083880;
       animation: none;
     }
-
-    .btn:hover::before,
-    .btn:hover::after {
-      display: none;
-    }
   }
+}
+
+.pulse:before,
+.pulse:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background-color: #083880;
+  border-radius: 10px;
+  z-index: -1;
+  animation: pulse 5s ease-in-out infinite;
+}
+
+.pulse::after {
+  animation-delay: 1s !important;
+}
+
+.pulse:hover::before,
+.pulse:hover::after {
+  display: none;
 }
 
 @keyframes pulse {
   100% {
     opacity: 0;
     transform: scale(1.8);
+  }
+}
+
+.pulse2 {
+  animation: pulse2 3s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulse2 {
+  100% {
+    transform: scale(1.2);
   }
 }
 
@@ -1601,7 +1628,6 @@ p {
     .landing-page {
       height: 100%;
       overflow-y: auto;
-
     }
   }
 }

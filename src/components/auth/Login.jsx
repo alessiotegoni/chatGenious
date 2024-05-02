@@ -105,7 +105,8 @@ const Login = () => {
               </div>
             </div>
             <p className="go-to-home">
-              Se non hai un account, <Link to="/signin">Registrati</Link>
+              {/* Se non hai un account, <Link to="/signin">Registrati</Link> */}
+              Oppure torna alla <Link to="/">Home</Link>
             </p>
             <button type="submit" id="loginBtn" disabled={!canSave}>
               {isLoading ? (
