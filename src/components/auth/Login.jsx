@@ -27,7 +27,7 @@ const Login = () => {
     setMsg({});
   }, [username, password]);
 
-  const canSave = [username, password].every(Boolean);
+  const canSave = [username, password].every(Boolean) && !isLoading;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,6 +78,7 @@ const Login = () => {
                 <input
                   type="text"
                   id="username"
+                  autoComplete="username"
                   ref={inputRef}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -93,6 +94,7 @@ const Login = () => {
                 <input
                   type="password"
                   id="password"
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -104,9 +106,8 @@ const Login = () => {
                 </label>
               </div>
             </div>
-            <p className="go-to-home">
-              {/* Se non hai un account, <Link to="/signin">Registrati</Link> */}
-              Oppure torna alla <Link to="/">Home</Link>
+            <p className="go-to">
+              Se non hai un account, <Link to="/signin">Registrati</Link>
             </p>
             <button type="submit" id="loginBtn" disabled={!canSave}>
               {isLoading ? (

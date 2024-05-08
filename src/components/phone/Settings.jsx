@@ -111,11 +111,15 @@ const Settings = ({
         dispatch(logout());
       }, 5000);
     } catch (err) {
-      setMsg({ type: "error", message: err?.message || err?.data?.message });
+      setMsg({
+        type: "error",
+        message: err?.message || err?.response?.data?.message,
+      });
       console.error(err);
     } finally {
       setTimeout(() => {
         setIsLoading({});
+        navigate("/");
       }, 3000);
     }
 

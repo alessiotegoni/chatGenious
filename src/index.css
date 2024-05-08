@@ -230,16 +230,17 @@ button img {
     border-radius: 20px;
     background: #111111;
 
-    .go-to-home {
+    .go-to {
       font-size: 0.9rem;
     }
 
-    .go-to-home a {
+    .go-to a, 
+    .my-login p span {
       color: #34b7f1;
       text-decoration: none;
     }
 
-    .go-to-home a:hover {
+    .go-to a:hover {
       text-decoration: underline;
     }
   }
