@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "../../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { t } from "i18next";
+import i18n from "../../config/i18n";
 
 const Signin = () => {
   const [username, setUsername] = useState("");
@@ -70,6 +72,10 @@ const Signin = () => {
       ? "#075e54"
       : "#dc354686";
 
+  const { msg1, msg2, title, first, goto } = t("register")
+
+  console.log(i18n.language);
+
   return (
     <div className="login">
       <div className="left flex">
@@ -78,7 +84,7 @@ const Signin = () => {
       <div className="right flex">
         <div className="login-container">
           <form className="box" onSubmit={handleSubmit}>
-            <h2>Registrazione</h2>
+            <h2>{title}</h2>
             {msg.message && msg.isError && (
               <p className="msg error">{msg.message}</p>
             )}
@@ -104,8 +110,8 @@ const Signin = () => {
               </div>
               {username.length > 0 && username.length < 8 && (
                 <p>
-                  L'username deve contenere almeno 8 caratteri,
-                  <span> caratteri mancanti {8 - username.length}</span>
+                  L'username {msg1},
+                  <span> {msg2} {8 - username.length}</span>
                 </p>
               )}
               <div className="input-group">
@@ -125,13 +131,13 @@ const Signin = () => {
               </div>
               {password.length > 0 && password.length < 8 && (
                 <p>
-                  La password deve contenere almeno 8 caratteri,
-                  <span> caratteri mancanti {8 - password.length}</span>
+                  La password {msg1},
+                  <span> {msg2} {8 - password.length}</span>
                 </p>
               )}
             </div>
             <p className="go-to">
-              Se hai gia' un account clicca qui, <Link to="/login">Login</Link>
+              {first}, <Link to="/login">{goto}</Link>
             </p>
             <button
               type="submit"
@@ -148,7 +154,7 @@ const Signin = () => {
                   alt="loading-gif"
                 />
               ) : (
-                "login"
+                "sign up"
               )}
             </button>
           </form>

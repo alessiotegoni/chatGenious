@@ -1336,7 +1336,7 @@ p {
     transition: 0.3s;
   }
 
-  .links a:hover {
+  .links a:not(:has(.current-language)):hover {
     background-color: #202020;
   }
 
@@ -1382,9 +1382,76 @@ p {
   .links a:hover::before {
     width: 100%;
   }
-
-
  */
+
+ .navbar #languages {
+
+  .dropdown {
+    pointer-events: none;
+    opacity: 0;
+    width: 130%;
+    z-index: 9999999;
+    position: absolute;
+    top: calc(100% + 2.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111111;
+    border-radius: 15px;
+    padding: 0 .5rem;
+    transition: .4s;
+    border: 1px solid #242424;
+  }
+
+  .dropdown.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .dropdown li p {
+    font-size: .95rem;
+
+  }
+
+  img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .dropdown li:first-child {
+    margin-top: .5rem;
+  }
+
+  .dropdown li:last-child {
+    margin-bottom: .5rem;
+  }
+
+  .dropdown li {
+    margin: .1rem 0;
+    padding: .5rem;
+  }
+
+  .dropdown li:hover {
+    background: #181818;
+    border-radius: 8px;
+  }
+
+  .dropdown .flex {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .current-language .flag {
+    width: 20px;
+    height: 20px;
+  }
+
+  .current-language {
+    align-items: center;
+    justify-content: space-between;
+    gap: .60rem;
+  }
+
+ }
 
   .btn:hover {
     background-color: transparent;

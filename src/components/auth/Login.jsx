@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "../../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -16,6 +17,7 @@ const Login = () => {
   const axios = useAxiosPrivate();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation()
   const { isLogged } = useAuth();
 
   useEffect(() => {
@@ -57,6 +59,8 @@ const Login = () => {
       }, 5000);
     }
   };
+
+  const { first, goto } = t("login")
 
   return (
     <div className="login">
@@ -107,7 +111,7 @@ const Login = () => {
               </div>
             </div>
             <p className="go-to">
-              Se non hai un account, <Link to="/signin">Registrati</Link>
+              {first}, <Link to={"/signin"}>{goto}</Link>
             </p>
             <button type="submit" id="loginBtn" disabled={!canSave}>
               {isLoading ? (
