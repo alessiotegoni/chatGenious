@@ -99,6 +99,7 @@ const Navbar = () => {
   
   const handleSetLanguage = (l) => {
     setLanguage({ ...l })
+    setLangMenu(false)
     i18n.changeLanguage(l.code)
   }
 
@@ -115,6 +116,11 @@ const Navbar = () => {
   //   id="chatGeniousLogo"
   //   onClick={() => navigate("/")}
   // />
+
+  const handleSetMobileMenu = () => {
+    setMobileMenu((p) => !p)
+    if (langMenu) setLangMenu(false)
+  }
 
   return (
     <nav className="navbar flex">
@@ -146,7 +152,7 @@ const Navbar = () => {
       <button
         type="button"
         id="toggleMobileMenu"
-        onClick={() => setMobileMenu((p) => !p)}
+        onClick={handleSetMobileMenu}
       >
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAL0lEQVR4nO3BQREAMBADofVvOpXQ/w1QAEDtiHZEAADwtSPaEQEAwNeOaEcEANQDM6arjUtOdLsAAAAASUVORK5CYII=" />
       </button>
