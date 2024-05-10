@@ -37,6 +37,20 @@ i18n
             msg1: "deve contenere almeno 8 caratteri",
             msg2: "caratteri mancanti",
           },
+          phone: {
+            noContact: {
+              first: "Nessuna chat",
+              second: "aggiungi un contatto"
+            },
+            findChat: "Cerca",
+            noResult: "Nessun risultato",
+            adContact: "Con chi vuoi parlare?",
+            bottomBar: {
+              updates: "Aggiornamenti",
+              calls: "Chiamate",
+              settings: "Impostazioni"
+            }
+          }
         },
       },
       en: {
