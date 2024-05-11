@@ -53,6 +53,8 @@ const Signin = () => {
       }, 4000);
     } catch (err) {
       console.error(err);
+      if (err.message === "Network Error")
+        err.message = "Errore, riprovare piu tardi";
       setIsLoading(false);
       setMsg({
         isError: true,
@@ -72,7 +74,7 @@ const Signin = () => {
       ? "#075e54"
       : "#dc354686";
 
-  const { msg1, msg2, title, first, goto } = t("register")
+  const { msg1, msg2, title, first, goto } = t("register");
 
   console.log(i18n.language);
 
@@ -111,7 +113,10 @@ const Signin = () => {
               {username.length > 0 && username.length < 8 && (
                 <p>
                   L'username {msg1},
-                  <span> {msg2} {8 - username.length}</span>
+                  <span>
+                    {" "}
+                    {msg2} {8 - username.length}
+                  </span>
                 </p>
               )}
               <div className="input-group">
@@ -132,7 +137,10 @@ const Signin = () => {
               {password.length > 0 && password.length < 8 && (
                 <p>
                   La password {msg1},
-                  <span> {msg2} {8 - password.length}</span>
+                  <span>
+                    {" "}
+                    {msg2} {8 - password.length}
+                  </span>
                 </p>
               )}
             </div>

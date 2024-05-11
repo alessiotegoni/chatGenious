@@ -17,7 +17,7 @@ const Login = () => {
   const axios = useAxiosPrivate();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { isLogged } = useAuth();
 
   useEffect(() => {
@@ -51,6 +51,8 @@ const Login = () => {
       }, 4000);
     } catch (err) {
       console.error(err);
+      if (err.message === "Network Error")
+        err.message = "Errore, riprovare piu tardi";
       setIsLoading(false);
       setMsg({ isError: true, message: err.message });
     } finally {
@@ -60,7 +62,7 @@ const Login = () => {
     }
   };
 
-  const { first, goto } = t("login")
+  const { first, goto } = t("login");
 
   return (
     <div className="login">
