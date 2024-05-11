@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CreateContactForm from './CreateContactForm'
+import { t } from "i18next";
 
 const TopBar = ({ searchedChat, setSearchedChat, createContForm, setCreateContForm }) => {
 
@@ -30,7 +31,7 @@ const TopBar = ({ searchedChat, setSearchedChat, createContForm, setCreateContFo
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAklEQVR4nO2WzUocQRDHhyTuJcZbBF9BfQeTczxoiL6CKCZqXmCvIW/g1Y0GersWYapHlq2awRAQZC5qQENi7jnrQU+G6u3Z3dNmundZBC1oGOiu/vXUx787ih7tvphSqlJHXgZDe4B0AcjX7SHftCtzsmao0AbyWzB8CYbv+g2N9BtiWhwYWK1Wn4Chz53NkU8A0w8qoemdZvO5jPoBz2hDGxr5tHMAw5/ENxgMDqqRbwBppd9mMqcTXrVrHXyQ8N7JRo0knSvrV49br7pwWvCCKqUqnZwirfgeGjBdc76/tvN8rLRj3VZvO6chuVJKPdWGzuweCb0r7agNf3Xg91GgQUybLlVfyoORf4qTVG8oWKrdhfuitBMgXVlwlo2Hgvf3v79w4KuRgmtJMuEN1kMINcTZbFHZ5Z2Qdl0fboSCtWl9dEpW824njXwa2k6A9EP2aCAv+ThWrOALPOFVX7A2tO7+9jLLsmdezhDTYiGZIoOloUivwfCt/VvTmvc9tDUR+u4lka5JCKP+arVeQDXyX2g2J6MQq8qN4+Cu2M5EkUQcpNVk2OpF3ipy2oEW60PhYnLLSFv87yEAhv8Apm8EVmj1wPDtPB8TwRftBUPnVmTaTx85UE2qt7eQhgr3NZV8e9l9mdA5HBxORQ8CDr1hRz4eGbgHnmuko5GCHy1y9g87MzoAHNwGKAAAAABJRU5ErkJggg==" />
             <input
               type="text"
-              placeholder="Cerca"
+              placeholder={t("phone")?.searchChat || "Cerca"}
               id="searchInput"
               value={searchedChat}
               onChange={(e) => setSearchedChat(e.target.value)}

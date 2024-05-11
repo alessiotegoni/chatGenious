@@ -3,6 +3,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addNewChat } from "../../redux/slices/chatsSlice";
+import { t } from "i18next";
 
 const CreateContactForm = ({ active, setActive }) => {
   const [contactName, setContactName] = useState("");
@@ -55,6 +56,8 @@ const CreateContactForm = ({ active, setActive }) => {
     }
   };
 
+  const { addContact, cancel, save } = t("phone");
+
   const saveContactBtn = isLoading ? (
     <img
       alt="loading-gif"
@@ -63,7 +66,7 @@ const CreateContactForm = ({ active, setActive }) => {
     />
   ) : (
     <b id="saveContact" onClick={handleSaveContact} aria-disabled={!canSave}>
-      Salva
+      {save}
     </b>
   );
 
@@ -71,8 +74,8 @@ const CreateContactForm = ({ active, setActive }) => {
     <section className="create-contact">
       <div className="box">
         <header className="flex">
-          <p onClick={() => setActive(false)}>Annulla</p>
-          <b>Con chi vuoi parlare?</b>
+          <p onClick={() => setActive(false)}>{cancel}</p>
+          <b>{addContact.ask}</b>
           {saveContactBtn}
         </header>
         {msg.message && (
@@ -82,7 +85,7 @@ const CreateContactForm = ({ active, setActive }) => {
           <div className="input-group flex">
             <input
               type="text"
-              placeholder="Nome"
+              placeholder={addContact.name}
               id="contactNameInput"
               value={contactName}
               onChange={(e) => setContactName(e.target.value)}
@@ -99,7 +102,7 @@ const CreateContactForm = ({ active, setActive }) => {
           <div className="input-group flex">
             <input
               type="text"
-              placeholder="Cognome"
+              placeholder={addContact.surname}
               id="contactSurnameInput"
               value={contactSurname}
               onChange={(e) => setContactSurname(e.target.value)}

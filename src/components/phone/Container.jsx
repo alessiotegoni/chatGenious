@@ -4,6 +4,7 @@ import Chat from "./Chat";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserChats, setChats } from "../../redux/slices/chatsSlice";
 import Settings from "./Settings";
+import { t } from "i18next";
 
 const ChatContainer = ({
   showChat,
@@ -26,7 +27,6 @@ const ChatContainer = ({
 
   useEffect(() => {
     const sortedChats = [...chats].sort((chatA, chatB) => {
-
       const parseDate = (dateString) => {
         // if (dateString === "Oggi") return new Date();
         // if (dateString === "Ieri") {
@@ -64,12 +64,14 @@ const ChatContainer = ({
   const isFilterChats = searchedChat && filteredChats.length > 0;
   const isChatNotFound = searchedChat && filteredChats.length < 1;
 
+  const { noContact, noResult } = t("phone");
+
   const chatsEl = isChatNotFound ? (
-    <h2 className="no-result">Nessun risultato</h2>
+    <h2 className="no-result">{noResult}</h2>
   ) : !isFilterChats && chats.length < 1 ? (
     <p className="no-chats">
-      Nessuna chat,{" "}
-      <span onClick={() => setCreateContForm(true)}>aggiungi un contatto</span>
+      {noContact.first},{" "}
+      <span onClick={() => setCreateContForm(true)}>{noContact.second}</span>
     </p>
   ) : (
     (isFilterChats ? [...filteredChats] : [...chats]).map((c) => (

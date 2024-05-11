@@ -95,11 +95,14 @@ const Navbar = () => {
       break;
   }
 
-  const handleToggleLangMenu = () => setLangMenu(p => !p)
+  const handleToggleLangMenu = (e) => {
+    const bool = langMenu ? false : true;
+    setLangMenu(bool)
+  }
   
   const handleSetLanguage = (l) => {
+    if (langMenu) setLangMenu(false)
     setLanguage({ ...l })
-    setLangMenu(false)
     i18n.changeLanguage(l.code)
   }
 
@@ -140,7 +143,7 @@ const Navbar = () => {
               <div className="current-language flex">
                 {language.flag}
                 {language.lang}
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAaElEQVR4nO3QMQqAMBBE0ZzAeGHtgoXgPTzlt1FL2SQTbObDVFs82JScc861BqzAKd4SgcsAuETgCdiF6AHM0Xer8DgqxOtRAd6OduD9aAOuQytwPRrAx6Ef+Hj0CcjAdi+/B+dc+qELlSFsB74P8TMAAAAASUVORK5CYII=" />
+                <img className="arrow-down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAaElEQVR4nO3QMQqAMBBE0ZzAeGHtgoXgPTzlt1FL2SQTbObDVFs82JScc861BqzAKd4SgcsAuETgCdiF6AHM0Xer8DgqxOtRAd6OduD9aAOuQytwPRrAx6Ef+Hj0CcjAdi+/B+dc+qELlSFsB74P8TMAAAAASUVORK5CYII=" />
               </div>
               <menu className={`dropdown${langMenu ? " active" : ""}`}>{languagesEl}</menu>
             </a>

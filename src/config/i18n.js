@@ -15,7 +15,7 @@ i18n
           subtitle: "Scambia messaggi con grandi personaggi della storia!",
           description: {
             line1:
-              "ChatGenius è un'esperienza interattiva unica che ti permette di conversare con personaggi storici, celebrità e figure di spicco del mondo contemporaneo, il tutto grazie alla potenza dell'intelligenza artificiale. Entra in chat con Leopardi, chiacchiera con James Joyce o scambia idee con Charles Baudelaire come se fossero lì con te.",
+              "ChatGenius è un'esperienza interattiva unica che ti permette di conversare con personaggi storici, celebrità e figure di spicco del mondo contemporaneo, il tutto grazie alla potenza dell'intelligenza artificiale. Entra in chat con Leopardi, chiacchiera con Oscar Wilde o scambia idee con Charles Baudelaire come se fossero lì con te.",
             line2:
               "Abbiamo creato ChatGenius per avvicinare il passato e il presente, offrendoti la possibilità di interagire con le menti più brillanti della storia attraverso conversazioni coinvolgenti e autentiche. Fai domande, ricevi risposte e lasciati ispirare dalle parole di grandi personalità, tutto direttamente dalla tua chat.",
             line3:
@@ -40,17 +40,27 @@ i18n
           phone: {
             noContact: {
               first: "Nessuna chat",
-              second: "aggiungi un contatto"
+              second: "aggiungi un contatto",
             },
-            findChat: "Cerca",
+            searchChat: "Cerca",
             noResult: "Nessun risultato",
-            adContact: "Con chi vuoi parlare?",
+            addContact: {
+              ask: "Con chi vuoi parlare?",
+              name: "Nome",
+              surname: "Cognome",
+            },
             bottomBar: {
               updates: "Aggiornamenti",
               calls: "Chiamate",
-              settings: "Impostazioni"
-            }
-          }
+              settings: "Impostazioni",
+            },
+            dm: {
+              isWriting: "Sta scrivendo",
+              status: "Online",
+            },
+            cancel: "cancella",
+            save: "salva",
+          },
         },
       },
       en: {
@@ -58,7 +68,7 @@ i18n
           subtitle: "Exchange messages with great characters from history!",
           description: {
             line1:
-              "ChatGenius is a unique interactive experience that allows you to converse with historical figures, celebrities and leading figures from the contemporary world, all thanks to the power of artificial intelligence. Chat with Leopardi, James Joyce or exchange ideas with Charles Baudelaire as if they were there with you.",
+              "ChatGenius is a unique interactive experience that allows you to converse with historical figures, celebrities and leading figures from the contemporary world, all thanks to the power of artificial intelligence. Chat with Leopardi, Oscar Wilde or exchange ideas with Charles Baudelaire as if they were there with you.",
             line2:
               "We have created ChatGenius to bring the past and present closer together, giving you the chance to interact with history's brightest minds through engaging and authentic conversations. Ask questions, get answers and be inspired by the words of great personalities, all directly from your chat.",
             line3:
@@ -80,6 +90,30 @@ i18n
             msg1: "must contain at least 8 characters",
             msg2: "characters missing",
           },
+          phone: {
+            noContact: {
+              first: "No chats",
+              second: "add a contact",
+            },
+            searchChat: "Search",
+            noResult: "No results",
+            addContact: {
+              ask: "Who do you want to talk to?",
+              name: "Name",
+              surname: "Surname",
+            },
+            bottomBar: {
+              updates: "Updates",
+              calls: "Calls",
+              settings: "Settings",
+            },
+            dm: {
+              isWriting: "Is writing",
+              status: "Online",
+            },                
+            cancel: "Cancel",
+            save: "Save",
+          },
         },
       },
       fr: {
@@ -88,7 +122,7 @@ i18n
             "Échangez des messages avec de grands personnages de l'histoire!",
           description: {
             line1:
-              "ChatGenius est une expérience interactive unique qui vous permet de converser avec des personnages historiques, des célébrités et des personnalités du monde contemporain, tout cela grâce à la puissance de l'intelligence artificielle. Discutez avec Leopardi, James Joyce ou échangez des idées avec Charles Baudelaire comme s'ils étaient à vos côtés.",
+              "ChatGenius est une expérience interactive unique qui vous permet de converser avec des personnages historiques, des célébrités et des personnalités du monde contemporain, tout cela grâce à la puissance de l'intelligence artificielle. Discutez avec Leopardi, Oscar Wilde ou échangez des idées avec Charles Baudelaire comme s'ils étaient à vos côtés.",
             line2:
               "Nous avons créé ChatGenius pour rapprocher le passé et le présent, vous donnant la possibilité d'interagir avec les esprits les plus brillants de l'histoire à travers des conversations engageantes et authentiques. Posez des questions, obtenez des réponses et laissez-vous inspirer par les paroles de grandes personnalités, le tout directement depuis votre chat.",
             line3:
@@ -110,6 +144,30 @@ i18n
             msg1: "doit contenir au moins 8 caractères",
             msg2: "caractères manquants",
           },
+          phone: {
+            noContact: {
+              first: "Aucune discussion",
+              second: "ajouter un contact",
+            },
+            searchChat: "Recherche",
+            noResult: "Aucun résultat",
+            addContact: {
+              ask: "Avec qui voulez-vous parler?",
+              name: "Prénom",
+              surname: "Nom",
+            },
+            bottomBar: {
+              updates: "Mises à jour",
+              calls: "Appels",
+              settings: "Paramètres",
+            },
+            dm: {
+              isWriting: "Est en train d'écrire",
+              status: "En ligne",
+            },            
+            cancel: "Annuler",
+            save: "Sauver",
+          },
         },
       },
       es: {
@@ -118,7 +176,7 @@ i18n
             "¡Intercambia mensajes con grandes personajes de la historia!",
           description: {
             line1:
-              "ChatGenius es una experiencia interactiva única que te permite conversar con personajes históricos, celebridades y personajes destacados del mundo contemporáneo, todo gracias al poder de la inteligencia artificial. Charle con Leopardi, charle con James Joyce o intercambie ideas con Charles Baudelaire como si estuvieran allí con usted.",
+              "ChatGenius es una experiencia interactiva única que te permite conversar con personajes históricos, celebridades y personajes destacados del mundo contemporáneo, todo gracias al poder de la inteligencia artificial. Charle con Leopardi, Oscar Wilde o intercambie ideas con Charles Baudelaire como si estuvieran allí con usted.",
             line2:
               "Creamos ChatGenius para acercar el pasado y el presente, brindándote la oportunidad de interactuar con las mentes más brillantes de la historia a través de conversaciones interesantes y auténticas. Haz preguntas, obtén respuestas e inspírate con las palabras de grandes personalidades, todo directamente desde tu chat.",
             line3:
@@ -139,6 +197,30 @@ i18n
             goto: "Inicia la sesión",
             msg1: "debe contener al menos 8 caracteres",
             msg2: "caracteres faltantes",
+          },
+          phone: {
+            noContact: {
+              first: "Sin chats",
+              second: "añadir un contacto",
+            },
+            searchChat: "Buscar",
+            noResult: "Sin resultados",
+            addContact: {
+              ask: "¿Con quién quieres hablar?",
+              name: "Nombre",
+              surname: "Apellido",
+            },
+            bottomBar: {
+              updates: "Actualizaciones",
+              calls: "Llamadas",
+              settings: "Ajustes",
+            },
+            dm: {
+              isWriting: "Está escribiendo",
+              status: "En línea",
+            },   
+            cancel: "Cancelar",
+            save: "Guardar",
           },
         },
       },

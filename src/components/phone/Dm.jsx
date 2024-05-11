@@ -7,6 +7,7 @@ import {
   getUserChats,
   saveMessage,
 } from "../../redux/slices/chatsSlice";
+import { t } from "i18next";
 
 const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
   const msgsContainer = useRef();
@@ -284,6 +285,8 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
     </form>
   );
 
+  const { dm } = t("phone");
+
   return (
     <main className={`shown-chat active`}>
       <header>
@@ -306,9 +309,9 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
             <div>
               <h3 className="chat-name">{chat.chatName}</h3>
               {isLoading && !deleteQuest.canShowConfirm ? (
-                <p className="user-writing">sta scrivendo...</p>
+                <p className="user-writing">{dm.isWriting}...</p>
               ) : (
-                <p className="contact-status">Online</p>
+                <p className="contact-status">{dm.status}</p>
               )}
             </div>
           </div>
