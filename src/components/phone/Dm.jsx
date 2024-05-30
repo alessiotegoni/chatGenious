@@ -25,6 +25,8 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
   const axios = useAxiosPrivate();
   const dispatch = useDispatch();
 
+  const delTypeRef = useRef(); 
+
   useEffect(() => {
     msgsContainer.current.addEventListener("scroll", handleScroll);
   }, []);
@@ -187,9 +189,7 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
 
     if (!btn.hasAttribute("type")) return;
 
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownText = dropdown.querySelector("p");
-    dropdownText.innerHTML = btn.innerHTML;
+    delTypeRef.current.innerHTML = btn.innerHTML;
 
     const { activePopup, activeBtns } = deleteQuest;
 
@@ -258,7 +258,7 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
             })
           }
         >
-          <p>Scegli</p>
+          <p ref={delTypeRef}>Scegli</p>
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAaElEQVR4nO3QMQqAMBBE0ZzAeGHtgoXgPTzlt1FL2SQTbObDVFs82JScc861BqzAKd4SgcsAuETgCdiF6AHM0Xer8DgqxOtRAd6OduD9aAOuQytwPRrAx6Ef+Hj0CcjAdi+/B+dc+qELlSFsB74P8TMAAAAASUVORK5CYII=" />
         </div>
         <div
@@ -280,7 +280,7 @@ const Dm = ({ chat, showChat, setShowChat, showFullImg, setShowFullImg }) => {
         </button>
       )}
       {deleteQuest.canShowConfirm && isLoading && (
-        <img src="https://i.stack.imgur.com/kOnzy.gif" alt="loading-gif" />
+        <img src="imgs/IOS-loading.gif" alt="loading-gif" />
       )}
     </form>
   );

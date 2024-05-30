@@ -62,7 +62,7 @@ const CreateContactForm = ({ active, setActive }) => {
     <img
       alt="loading-gif"
       className="loading-gif"
-      src="https://i.stack.imgur.com/kOnzy.gif"
+      src="imgs/IOS-loading.gif"
     />
   ) : (
     <b id="saveContact" onClick={handleSaveContact} aria-disabled={!canSave}>
