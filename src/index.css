@@ -1464,6 +1464,7 @@ p {
 
   .outlet {
     width: 100%;
+    margin-top: 2rem;
   }
 
   .outlet:not(:has(.landing-page)) {
