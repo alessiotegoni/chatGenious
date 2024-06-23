@@ -1710,7 +1710,7 @@ p {
 }
 
 @media (max-width: 895px) {
-  .home .btn {
+  .landing-page .btn {
     margin-top: 1rem;
   }
 }
