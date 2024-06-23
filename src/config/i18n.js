@@ -9,6 +9,9 @@ i18n
   .use(initReactI18next)
   .init({
     lng: "it",
+    returnObjects: true,
+    fallbackLng: "en",
+    debug: false,
     resources: {
       it: {
         translation: {
@@ -110,7 +113,7 @@ i18n
             dm: {
               isWriting: "Is writing",
               status: "Online",
-            },                
+            },
             cancel: "Cancel",
             save: "Save",
           },
@@ -164,7 +167,7 @@ i18n
             dm: {
               isWriting: "Est en train d'écrire",
               status: "En ligne",
-            },            
+            },
             cancel: "Annuler",
             save: "Sauver",
           },
@@ -218,16 +221,66 @@ i18n
             dm: {
               isWriting: "Está escribiendo",
               status: "En línea",
-            },   
+            },
             cancel: "Cancelar",
             save: "Guardar",
           },
         },
       },
-    },
-    returnObjects: true,
-    fallbackLng: "en",
-    debug: false,
+      pt: {
+        translation: {
+          subtitle: "Converse com grandes personagens da história!",
+          description: {
+            line1:
+              "O ChatGenius é uma experiência interativa única que permite conversar com personagens históricos, celebridades e figuras de destaque do mundo contemporâneo, tudo graças ao poder da inteligência artificial. Entre no chat com Leopardi, converse com Oscar Wilde ou troque ideias com Charles Baudelaire como se estivessem lá com você.",
+            line2:
+              "Criamos o ChatGenius para aproximar o passado e o presente, oferecendo a você a possibilidade de interagir com as mentes mais brilhantes da história através de conversas envolventes e autênticas. Faça perguntas, receba respostas e deixe-se inspirar pelas palavras de grandes personalidades, tudo diretamente do seu chat.",
+            line3:
+              "Entre no ChatGenius e prepare-se para descobrir o mundo com novos olhos!",
+          },
+          buttons: {
+            enter: "entrar",
+            startNow: "Comece agora!",
+            continueToChat: "Continue a conversa",
+          },
+          login: {
+            first: "Se você não tem uma conta",
+            goto: "Registre-se",
+          },
+          register: {
+            title: "Registro",
+            first: "Se você já tem uma conta clique aqui",
+            goto: "Login",
+            msg1: "deve conter pelo menos 8 caracteres",
+            msg2: "caracteres faltando",
+          },
+          phone: {
+            noContact: {
+              first: "Nenhuma conversa",
+              second: "adicione um contato",
+            },
+            searchChat: "Pesquisar",
+            noResult: "Nenhum resultado",
+            addContact: {
+              ask: "Com quem você quer falar?",
+              name: "Nome",
+              surname: "Sobrenome",
+            },
+            bottomBar: {
+              updates: "Atualizações",
+              calls: "Chamadas",
+              settings: "Configurações",
+            },
+            dm: {
+              isWriting: "Está escrevendo",
+              status: "Online",
+            },
+            cancel: "Cancelar",
+            save: "Salvar",
+          },
+        },
+      },
+    }
   });
 
 export default i18n;

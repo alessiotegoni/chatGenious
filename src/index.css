@@ -1231,10 +1231,7 @@ p {
   min-height: 100dvh;
   padding: 2%;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
+  position: relative;
 
   .navbar {
     justify-content: space-between;
@@ -1467,6 +1464,9 @@ p {
 
   .outlet {
     width: 100%;
+  }
+
+  .outlet:not(:has(.landing-page)) {
     height: 80dvh;
     display: flex;
     justify-content: center;
@@ -1475,11 +1475,14 @@ p {
 
   .outlet:has(.landing-page) {
     align-items: flex-start;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    padding: 2.8%;
+    transform: translate(-50%, -50%);
   }
 
   .landing-page {
-    width: 100%;
-    height: 80%;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -1528,6 +1531,7 @@ p {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      max-height: 580px;
     }
 
     .btn {
@@ -1538,7 +1542,6 @@ p {
       background-color: #083880;
       border-radius: 10px;
       border: 2px solid #083880;
-      margin-top: 1rem;
       z-index: 999;
       font-size: 1rem;
     }
@@ -1703,6 +1706,12 @@ p {
       height: 100%;
       overflow-y: auto;
     }
+  }
+}
+
+@media (max-width: 895px) {
+  .home .btn {
+    margin-top: 1rem;
   }
 }
 
