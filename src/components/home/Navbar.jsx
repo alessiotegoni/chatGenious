@@ -234,7 +234,9 @@ const Navbar = () => {
       </h2>
       <ul className={`links ${mobileMenu ? "active" : ""}`}>
         <li>
-          <NavLink end>Home</NavLink>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
           <li id="languages" onClick={handleToggleLangMenu}>
             <a>
               <div className="current-language flex">
