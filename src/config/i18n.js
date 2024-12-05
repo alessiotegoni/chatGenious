@@ -5,7 +5,6 @@ import { initReactI18next } from "react-i18next";
 // Translator
 
 i18n
-  .use(languageDetector)
   .use(initReactI18next)
   .init({
     lng: "it",

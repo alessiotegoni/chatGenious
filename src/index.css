@@ -956,7 +956,7 @@ p {
   header b {
     color: #fff;
     font-weight: 200;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   header p {
@@ -1337,7 +1337,7 @@ p {
     background-color: #202020;
   }
 
-  .links li.active a::before {
+  .links li a.active::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -1349,11 +1349,6 @@ p {
     border-radius: 20px 20px 0 0;
     transition: 0.5s ease-out;
   }
-
-  /* .links li.active a:hover::before {
-    width: 80%;
-    opacity: 0;
-  } */
 
   .links li.active a:hover {
     border-color: #34b7f1;
@@ -1404,6 +1399,14 @@ p {
       pointer-events: all;
     }
 
+    .dropdown.active li[aria-disabled=true] {
+      background-color: #24242465;
+    }
+
+    .dropdown.active li[aria-disabled=true] p {
+      color: rgba(128, 128, 128, 0.483);
+    }
+
     .dropdown li p {
       font-size: 0.95rem;
     }
@@ -1424,11 +1427,11 @@ p {
     .dropdown li {
       margin: 0.1rem 0;
       padding: 0.5rem;
+      border-radius: 8px;
     }
 
     .dropdown li:hover {
       background: #181818;
-      border-radius: 8px;
     }
 
     .dropdown .flex {
@@ -1449,7 +1452,7 @@ p {
   }
 
   .arrow-down {
-    transition: .4s;
+    transition: 0.4s;
   }
 
   #languages:has(.dropdown.active) .arrow-down {
@@ -1840,11 +1843,12 @@ p {
     }
 
     .create-contact header b:not(#saveContact) {
-      font-size: .7rem !important;
+      font-size: 0.7rem !important;
     }
 
-    .create-contact header p, #saveContact {
-      font-size: .8rem !important;
+    .create-contact header p,
+    #saveContact {
+      font-size: 0.8rem !important;
     }
 
     .create-contact .box .input-group.flex {
