@@ -10,7 +10,6 @@ import LandingPage from "./components/home/LandingPage";
 import NotFound from "./components/NotFound";
 import Layout from "./components/home/Layout";
 import Signin from "./components/auth/Signin";
-import Info from "./components/userManual/Info";
 
 function App() {
   return (
@@ -24,9 +23,6 @@ function App() {
           </Route>
           <Route element={<Prefetch />}>
             <Route path="phone" element={<Phone />} />
-          </Route>
-          <Route path="usermanual">
-            <Route index element={<Info />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
