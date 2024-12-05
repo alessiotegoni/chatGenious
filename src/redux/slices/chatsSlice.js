@@ -8,9 +8,15 @@ export const postSlice = createSlice({
   name: "chats",
   initialState,
   reducers: {
-    setChats: (state, { payload }) => (state.chats = payload.chats),
-    addNewChat: (state, { payload }) =>
-      (state.chats = [payload.newChat, ...state.chats]),
+    setChats: (state, action) => {
+      const { chats } = action.payload;
+      state.chats = chats;
+    },
+    addNewChat: (state, action) => {
+      const { newChat } = action.payload;
+
+      state.chats.push(newChat);
+    },
     saveMessage: (state, action) => {
       const { chatId, newMsg } = action.payload;
 
@@ -24,8 +30,10 @@ export const postSlice = createSlice({
 
       chat.messages.push(newMsg);
 
-      if (newMsg.isErrorMsg && chat.messages.length > 1 && newMsg.remove)
+      if (newMsg.isErrorMsg && chat.messages.length > 1 && newMsg.remove) {
         chat.messages = chat.messages.filter((m) => !m.remove && !m.isErrorMsg);
+        console.log(chat.messages);
+      }
     },
     deleteChats: (state, action) => {
       const { chatId, type } = action.payload;
